@@ -8,6 +8,7 @@
 /**
  * @brief Clase Estudiante que hereda de Persona
  * 
+ * Representa a un estudiante con atributos especificos como código, semestre y promedio
  */
 
 class Estudiante : public Persona{
@@ -22,6 +23,22 @@ class Estudiante : public Persona{
 
     //Destructor
     ~Estudiante();
+
+    //Getters
+    std::string getCodigo() const;
+    int getSemestre() const;
+    double getPromedio() const;
+
+    //Setters
+    void setCodigo(std::string codigo);
+    void setSemestre(int semestre);
+    void setPromedio(double promedio);
+
+    //Metodo para inscribir curso aun sin implementar
+    void inscribirCurso(class Curso* curso);
+
+    //Sobrescritura del metodo mostarInformacion
+    void mostrarInformacion() const override;
 };
 
 #endif

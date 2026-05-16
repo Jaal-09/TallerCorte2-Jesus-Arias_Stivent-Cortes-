@@ -37,7 +37,10 @@ class Estudiante : public Persona{
     //Metodo para inscribir curso aun sin implementar
     void inscribirCurso(class Curso* curso);
 
-    //Sobrescritura del metodo mostarInformacion
+    /**
+     * @brief Muestra informacion completa del estudiante
+     * @override sobrescribe el metodo de Persona
+     */
     void mostrarInformacion() const override;
 };
 

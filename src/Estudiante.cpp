@@ -43,7 +43,7 @@ void Estudiante::setSemestre(int semestre){
     if(semestre >= 1 && semestre <= 12){
         this->semestre = semestre;
     } else{
-        cerr << "Error: smestre no válido (" << semestre << "). Debe estar entre 1 y maximo 12. " << endl;
+        cerr << "Error: semestre no válido (" << semestre << "). Debe estar entre 1 y maximo 12. " << endl;
     }
 }
 
@@ -53,4 +53,25 @@ void Estudiante::setPromedio(double promedio) {
     } else{
         cerr << "Error: Promedio no válido (" << promedio << "). Debe estar entre 0.0 y 5.0" << endl;
     }
+}
+
+//Metodo para inscribir curso
+void Estudiante::inscribirCurso(Curso* curso){
+    if(curso != nullptr){
+        curso->registrarEstudiante(this);
+        cout << "Estudiante " << this->getNombre() << " inscrito en el curso " << curso->getNombreCurso() << endl;
+    } else{
+        cerr << "Error: curso no válido" << endl;
+    }
+}
+
+//Mostrar información (override)
+void Estudiante::mostrarInformacion() const{
+    //Realizamos un llamado al método de la clase base (Persona)
+    Persona::mostrarInformacion();
+
+    cout << "       Datos Academicos        " << endl;
+    cout << "Código:            " << this->codigo << endl;
+    cout << "Semestre:          " << this->semestre << endl;
+    cout << "Promedio:          " << this->promedio << endl;
 }

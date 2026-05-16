@@ -1,5 +1,5 @@
 #ifndef PERSONA_H
-#define Persona_H
+#define PERSONA_H  
 
 #include <iostream>
 #include <string>
@@ -19,7 +19,7 @@ class Persona{
 
     public:
         //Constructor
-        Persona(std::string nombre, std::string apellido, int edad, std::string dcoumento);
+        Persona(std::string nombre, std::string apellido, int edad, std::string documento);
 
         //Destructor
         virtual ~Persona();
@@ -34,7 +34,7 @@ class Persona{
         void setNombre(std::string nombre);
         void setApellido(std::string apellido);
         void setEdad(int edad);
-        void setDocumento(std::string docuemnto);
+        void setDocumento(std::string documento);
 
         virtual void mostrarInformacion() const;
 

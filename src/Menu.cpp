@@ -107,3 +107,45 @@ void registrarProfesor(vector<Profesor*>& profesores){
     cout << "\n Profesor registrado exitosamente." << endl;
     pausar();
 }
+
+//Metodo para crear curso
+void crearCurso(vector<Curso*>& cursos, vector<Profesor*>& profesores) {
+    string nombreCurso, codigoCurso;
+    int creditos;
+    
+    cout << "\n--- CREACIÓN DE CURSO ---" << endl;
+    
+    cout << "Nombre del curso: ";
+    cin >> nombreCurso;
+    
+    cout << "Código del curso: ";
+    cin >> codigoCurso;
+    
+    cout << "Créditos (1-6): ";
+    cin >> creditos;
+    
+    Curso* nuevoCurso = new Curso(nombreCurso, codigoCurso, creditos);
+    
+    // Asignar profesor si hay disponibles
+    if (!profesores.empty()) {
+        cout << "\nProfesores disponibles:" << endl;
+        for (size_t i = 0; i < profesores.size(); i++) {
+            cout << i + 1 << ". " << profesores[i]->getNombre() << " " 
+                 << profesores[i]->getApellido() << endl;
+        }
+        
+        int profesorIndex;
+        cout << "Seleccione profesor (0 para ninguno): ";
+        cin >> profesorIndex;
+        
+        if (profesorIndex > 0 && profesorIndex <= (int)profesores.size()) {
+            nuevoCurso->registrarProfesor(profesores[profesorIndex - 1]);
+        }
+    } else {
+        cout << "\n No hay profesores registrados." << endl;
+    }
+    
+    cursos.push_back(nuevoCurso);
+    cout << "\n Curso creado exitosamente." << endl;
+    pausar();
+}

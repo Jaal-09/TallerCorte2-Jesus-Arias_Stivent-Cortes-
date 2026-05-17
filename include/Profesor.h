@@ -30,4 +30,33 @@
 
         Profesor(std::string nombre, std::string apellido, int edad, std::string documento, std::string especialidad, double salario);
 
- }
+        //Destructor
+        ~Profesor();
+
+        //Getters
+        std::string getEspecialidad() const;
+
+        double getSalario() const;
+
+        //Setters
+        void setEspecialidad(std::string especialidad);
+
+        void setSalario(double salario);
+
+        /**
+         * @brief Asigna un curso al profesor
+         * @param curso Puntero al curso que se asignará
+         */
+
+         void asignarCurso(class Curso* curso);
+
+         /**
+          * @brief Muestra la información completa del profesor
+          * @override Sobrescribe el método de Persona
+          */
+
+        void mostrarInformacion() const override;
+
+ };
+
+ #endif

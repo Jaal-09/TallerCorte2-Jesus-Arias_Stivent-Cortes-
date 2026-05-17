@@ -51,4 +51,14 @@ class Curso;
          * @param nota Nota final (0.0 a 5.0)
          */
         void asignarNota(double nota);
- }
+
+        //Metodos 
+
+        /**
+         * @brief Muestra la información completa de la matricula
+         * 
+         */
+        void mostrarInformacion() const;
+ };
+
+ #endif

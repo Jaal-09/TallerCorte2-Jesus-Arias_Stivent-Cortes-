@@ -238,3 +238,33 @@ void asignarNota(vector<Matricula*>& matriculas) {
     }
     pausar();
 }
+
+//Metodos para mostar los estudiantes
+
+void mostrarEstudiantes(const vector<Estudiante*>& estudiantes) {
+    if (estudiantes.empty()) {
+        cout << "\n⚠ No hay estudiantes." << endl;
+    } else {
+        cout << "\n=== ESTUDIANTES ===" << endl;
+        for (size_t i = 0; i < estudiantes.size(); i++) {
+            cout << "\n--- Estudiante " << i + 1 << " ---" << endl;
+            estudiantes[i]->mostrarInformacion();
+        }
+    }
+    pausar();
+}
+
+
+//Metodo para mostrar los profesores
+void mostrarProfesores(const vector<Profesor*>& profesores) {
+    if (profesores.empty()) {
+        cout << "\n⚠ No hay profesores." << endl;
+    } else {
+        cout << "\n=== PROFESORES ===" << endl;
+        for (size_t i = 0; i < profesores.size(); i++) {
+            cout << "\n--- Profesor " << i + 1 << " ---" << endl;
+            profesores[i]->mostrarInformacion();
+        }
+    }
+    pausar();
+}

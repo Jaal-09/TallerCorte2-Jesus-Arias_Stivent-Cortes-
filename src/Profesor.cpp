@@ -38,6 +38,26 @@ void Profesor::setSalario(double salario){
     if(salario > 0){
         this->salario = salario;
     } else{
-        cerr << "Error: Slario no válido (" << salario << "). Debe ser mayor a 0." << endl;
+        cerr << "Error: Salario no válido (" << salario << "). Debe ser mayor a 0." << endl;
     }
+}
+
+//Metodo para asignar curso
+void Profesor::asignarCurso(Curso* curso){
+    if(curso != nullptr){
+        curso->registrarProfesor(this);
+        cout << "Profesor " << this->getNombre() << " asignado al curso " << curso->getNombreCurso() << endl;
+    } else{
+        cerr << "Error: curso no válido" << endl;
+    }
+}
+
+//Mostrar información (override)
+void Profesor::mostrarInformacion() const{
+    //Llama al metodo de la clase base Persona
+    Persona::mostrarInformacion();
+
+    cout << "       Datos Profesionales     " << endl;
+    cout << "Especialidad:      " << this->especialidad << endl;
+    cout << "Salario:           $" << this->salario << endl; 
 }

@@ -188,15 +188,53 @@ void matricularEstudiante(vector<Matricula*>& matriculas, vector<Estudiante*>& e
     if (estIndex > 0 && estIndex <= (int)estudiantes.size() &&
         cursoIndex > 0 && cursoIndex <= (int)cursos.size()) {
         
-        Matricula* nueva = new Matricula(estudiantes[estIndex - 1], 
-                                          cursos[cursoIndex - 1], 
-                                          estado);
+        Matricula* nueva = new Matricula(estudiantes[estIndex - 1], cursos[cursoIndex - 1], estado);
         matriculas.push_back(nueva);
         cursos[cursoIndex - 1]->registrarEstudiante(estudiantes[estIndex - 1]);
         
-        cout << "\n✓ Matrícula realizada." << endl;
+        cout << "\n Matrícula realizada." << endl;
     } else {
-        cout << "\n❌ Selección no válida." << endl;
+        cout << "\n Selección no válida." << endl;
+    }
+    pausar();
+}
+
+//Metodo registrar notas
+void asignarNota(vector<Matricula*>& matriculas) {
+    if (matriculas.empty()) {
+        cout << "\n No hay matrículas." << endl;
+        pausar();
+        return;
+    }
+    
+    cout << "\n--- ASIGNAR NOTA ---" << endl;
+    
+    // Mostrar solo matrículas activas
+    vector<size_t> activas;
+    for (size_t i = 0; i < matriculas.size(); i++) {
+        if (matriculas[i]->getEstado() == "Activa") {
+            activas.push_back(i);
+            cout << activas.size() << ". " 
+                 << matriculas[i]->getEstudiante()->getNombre() << " "
+                 << matriculas[i]->getCurso()->getNombreCurso() << endl;
+        }
+    }
+    
+    if (activas.empty()) {
+        cout << "No hay matrículas activas." << endl;
+        pausar();
+        return;
+    }
+    
+    int seleccion;
+    double nota;
+    cout << "Seleccione: ";
+    cin >> seleccion;
+    cout << "Nota (0-5): ";
+    cin >> nota;
+    
+    if (seleccion > 0 && seleccion <= (int)activas.size()) {
+        matriculas[activas[seleccion - 1]]->asignarNota(nota);
     }
     pausar();
 }

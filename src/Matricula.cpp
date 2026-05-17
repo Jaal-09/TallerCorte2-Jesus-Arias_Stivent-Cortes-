@@ -56,3 +56,13 @@ void Matricula::asignarNota(double nota){
     }
 }
 
+//Mostrar información
+void Matricula::mostrarInformacion() const{
+    cout << "       Información de Matricula        " << endl;
+    cout << " Estudiante:  " << estudiante->getNombre() << " " << estudiante->getApellido() << endl;
+    cout << " Curso:       " << curso->getNombreCurso() << " (" << curso->getCodigoCurso() << ") " << endl;
+    cout << " Estado:      " << estado << endl;
+    cout << " Nota Final:  " << notaFinal << endl;
+    cout << " __________________________________ " << endl;
+}
+

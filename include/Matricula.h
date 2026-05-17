@@ -34,5 +34,21 @@ class Curso;
         //Destructor
         ~Matricula();
 
-        
+        //Getters
+        Estudiante* getEstudiante() const;
+
+        Curso* getCurso() const;
+
+        std::string getEstado() const;
+
+        double getNotaFinal() const;
+
+        //Setters
+        void setEstado(std::string estado);
+
+        /**
+         * @brief Asignar una nota final al estudiante
+         * @param nota Nota final (0.0 a 5.0)
+         */
+        void asignarNota(double nota);
  }

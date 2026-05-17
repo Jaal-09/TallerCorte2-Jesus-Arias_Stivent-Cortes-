@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include "Estudiante.h"
+#include "Profesor.h"
 #include "Curso.h"
 #include "Matricula.h"
 
@@ -36,4 +37,73 @@ void mostrarMenu(){
     cout << " 9. Mostrar matrículas" << endl;
     cout << "10. Salir" << endl;
     cout << "========================================" << endl;
+}
+
+//Registrar estudiante
+void registrarEstudiante(vector<Estudiante*>& estudiantes){
+    string nombre, apellido, documento, codigo;
+    int edad, semestre;
+    double promedio;
+
+     cout << "\n--- REGISTRO DE ESTUDIANTE ---" << endl;
+    
+    cout << "Nombre: ";
+    cin >> nombre;
+    
+    cout << "Apellido: ";
+    cin >> apellido;
+    
+    cout << "Edad: ";
+    cin >> edad;
+    
+    cout << "Documento: ";
+    cin >> documento;
+    
+    cout << "Código de estudiante: ";
+    cin >> codigo;
+    
+    cout << "Semestre (1-12): ";
+    cin >> semestre;
+    
+    cout << "Promedio (0.0-5.0): ";
+    cin >> promedio;
+    
+    Estudiante* nuevo = new Estudiante(nombre, apellido, edad, documento, codigo, semestre, promedio);
+    estudiantes.push_back(nuevo);
+    
+    cout << "\n Estudiante registrado exitosamente." << endl;
+    pausar();
+}
+
+//Registrar profesor
+void registrarProfesor(vector<Profesor*>& profesores){
+    string nombre, apellido, documento, especialidad;
+    int edad;
+    double salario;
+
+    cout << "\n--- Registro de Profesor ---" << endl;
+
+    cout << "Nombre: ";
+    cin >> nombre;
+    
+    cout << "Apellido: ";
+    cin >> apellido;
+    
+    cout << "Edad: ";
+    cin >> edad;
+    
+    cout << "Documento: ";
+    cin >> documento;
+    
+    cout << "Especialidad: ";
+    cin >> especialidad;
+    
+    cout << "Salario: ";
+    cin >> salario;
+    
+    Profesor* nuevo = new Profesor(nombre, apellido, edad, documento, especialidad, salario);
+    profesores.push_back(nuevo);
+    
+    cout << "\n Profesor registrado exitosamente." << endl;
+    pausar();
 }

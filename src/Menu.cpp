@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <limits>
+#include <vector>
 
 using namespace std;
 
@@ -296,4 +297,16 @@ void mostrarMatriculas(const vector<Matricula*>& matriculas) {
         }
     }
     pausar();
+}
+
+void liberarMemoria(vector<Estudiante*>& estudiantes, vector<Profesor*>& profesores, vector<Curso*>& cursos, vector<Matricula*>& matriculas){
+    for(auto e : estudiantes) delete e;
+    for(auto p : profesores) delete p;
+    for(auto c : cursos ) delete c;
+    for(auto m : matriculas) delete m;
+
+    estudiantes.clear();
+    profesores.clear();
+    cursos.clear();
+    matriculas.clear();
 }

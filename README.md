@@ -9,34 +9,6 @@ Sistema académico desarrollado en **C++** para la gestión de:
 - Matrículas
 - Asignación de notas
 
-## 🏗️ Estructura del Proyecto
-TallerCorte2/
-│
-├── include/ # Archivos de cabecera (.h)
-│ ├── Persona.h
-│ ├── Estudiante.h
-│ ├── Profesor.h
-│ ├── Curso.h
-│ ├── Matricula.h
-│ └── Menu.h
-│
-├── src/ # Implementación (.cpp)
-│ ├── Persona.cpp
-│ ├── Estudiante.cpp
-│ ├── Profesor.cpp
-│ ├── Curso.cpp
-│ ├── Matricula.cpp
-│ └── Menu.cpp
-│
-├── docs/ # Documentación y diagramas UML
-│ └── diagrama_clases.png
-│
-├── main.cpp # Punto de entrada
-├── CMakeLists.txt # Configuración de CMake
-├── .gitignore
-└── README.md
-
-
 ## 🖥️ Menú Principal
 
 | Opción | Funcionalidad |

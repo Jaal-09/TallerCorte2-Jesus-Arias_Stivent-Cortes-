@@ -73,6 +73,8 @@ void Curso::registrarEstudiante(Estudiante* est){
     if(est != nullptr){
         estudiantes.push_back(est);
         cout << "Estudiante " << est->getNombre() << " " << est->getApellido() << " registrado en el curso " << this->nombreCurso << endl;
+    } else{
+        cerr << "Error: Estudiante no válido" << endl;
     }
 }
 
@@ -86,9 +88,11 @@ void Curso::mostrarInformacion() const{
     if(profesor != nullptr){
         cout << " Profesor:  " << profesor->getNombre() << " " << profesor->getApellido() << endl;
     } else{
-        cout << " Estudiantes: " << estudiantes.size() << " inscritos" << endl;
-        cout << "_______________________________________" << endl;
+        cout << " Profesor:     (No asignado)" << endl;
     }
+
+    cout << " Estudiantes: " << estudiantes.size() << " inscritos" << endl;
+    cout << "_______________________________________" << endl;
 }
 
 //Mostrar lista de estudiantes

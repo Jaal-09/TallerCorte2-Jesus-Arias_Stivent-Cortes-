@@ -149,3 +149,54 @@ void crearCurso(vector<Curso*>& cursos, vector<Profesor*>& profesores) {
     cout << "\n Curso creado exitosamente." << endl;
     pausar();
 }
+
+//Metodo para Matricula
+void matricularEstudiante(vector<Matricula*>& matriculas, vector<Estudiante*>& estudiantes, vector<Curso*>& cursos) {
+    if (estudiantes.empty() || cursos.empty()) {
+        cout << "\n⚠ Se necesitan estudiantes y cursos para matricular." << endl;
+        pausar();
+        return;
+    }
+    
+    cout << "\n--- MATRICULACIÓN ---" << endl;
+    
+    // Mostrar estudiantes
+    cout << "\nEstudiantes:" << endl;
+    for (size_t i = 0; i < estudiantes.size(); i++) {
+        cout << i + 1 << ". " << estudiantes[i]->getNombre() << " " 
+             << estudiantes[i]->getApellido() << endl;
+    }
+    
+    int estIndex;
+    cout << "Seleccione estudiante: ";
+    cin >> estIndex;
+    
+    // Mostrar cursos
+    cout << "\nCursos:" << endl;
+    for (size_t i = 0; i < cursos.size(); i++) {
+        cout << i + 1 << ". " << cursos[i]->getNombreCurso() << endl;
+    }
+    
+    int cursoIndex;
+    cout << "Seleccione curso: ";
+    cin >> cursoIndex;
+    
+    string estado;
+    cout << "Estado (Activa/Cancelada): ";
+    cin >> estado;
+    
+    if (estIndex > 0 && estIndex <= (int)estudiantes.size() &&
+        cursoIndex > 0 && cursoIndex <= (int)cursos.size()) {
+        
+        Matricula* nueva = new Matricula(estudiantes[estIndex - 1], 
+                                          cursos[cursoIndex - 1], 
+                                          estado);
+        matriculas.push_back(nueva);
+        cursos[cursoIndex - 1]->registrarEstudiante(estudiantes[estIndex - 1]);
+        
+        cout << "\n✓ Matrícula realizada." << endl;
+    } else {
+        cout << "\n❌ Selección no válida." << endl;
+    }
+    pausar();
+}

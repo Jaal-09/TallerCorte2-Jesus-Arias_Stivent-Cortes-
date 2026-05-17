@@ -243,7 +243,7 @@ void asignarNota(vector<Matricula*>& matriculas) {
 
 void mostrarEstudiantes(const vector<Estudiante*>& estudiantes) {
     if (estudiantes.empty()) {
-        cout << "\n⚠ No hay estudiantes." << endl;
+        cout << "\n No hay estudiantes." << endl;
     } else {
         cout << "\n=== ESTUDIANTES ===" << endl;
         for (size_t i = 0; i < estudiantes.size(); i++) {
@@ -264,6 +264,35 @@ void mostrarProfesores(const vector<Profesor*>& profesores) {
         for (size_t i = 0; i < profesores.size(); i++) {
             cout << "\n--- Profesor " << i + 1 << " ---" << endl;
             profesores[i]->mostrarInformacion();
+        }
+    }
+    pausar();
+}
+
+//Metodo para mostrar los cursos
+void mostrarCursos(const vector<Curso*>& cursos) {
+    if (cursos.empty()) {
+        cout << "\n⚠ No hay cursos." << endl;
+    } else {
+        cout << "\n=== CURSOS ===" << endl;
+        for (size_t i = 0; i < cursos.size(); i++) {
+            cout << "\n--- Curso " << i + 1 << " ---" << endl;
+            cursos[i]->mostrarInformacion();
+            cursos[i]->mostrarEstudiantes();
+        }
+    }
+    pausar();
+}
+
+//Metodo para mostrar matriculas
+void mostrarMatriculas(const vector<Matricula*>& matriculas) {
+    if (matriculas.empty()) {
+        cout << "\n No hay matrículas." << endl;
+    } else {
+        cout << "\n=== MATRÍCULAS ===" << endl;
+        for (size_t i = 0; i < matriculas.size(); i++) {
+            cout << "\n--- Matrícula " << i + 1 << " ---" << endl;
+            matriculas[i]->mostrarInformacion();
         }
     }
     pausar();

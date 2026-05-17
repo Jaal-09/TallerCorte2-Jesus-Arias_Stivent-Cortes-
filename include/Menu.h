@@ -19,7 +19,7 @@ void mostrarMenu();
  * @brief Registrar un nuevo estudiante
  * @param estudiantes Vector de punteros a Estudiante
  */
-void registarEstudiante(std::vector<Estudiante*>& estudiantes);
+void registrarEstudiante(std::vector<Estudiante*>& estudiantes);
 
 /**
  * @brief Registra un nuevo profesor
@@ -60,9 +60,27 @@ void mostrarEstudiantes(const std::vector<Estudiante*>& estudiantes);
  * @brief Muestra todos los profesores
  * @param profesores Vector de profesores
  */
-void mostrarProfesores(const std::vector<Profesor*>& cursos);
+void mostrarProfesores(const std::vector<Profesor*>& profesores);
 
 /**
- * @brief 
- * 
+ * @brief Muestra todos los cursos
+ * @param cursos Vector de cursos
  */
+void mostrarCursos(const std::vector<Curso*>& cursos);
+
+/**
+ * @brief Muestra todas las matriculas
+ * @param matriculas Vector de matriculas
+ */
+void mostrarMatriculas(const std::vector<Matricula*>& matriculas);
+
+/**
+ * @brief Libera toda la memoria
+ * @param estudiantes Vector de estudiantes
+ * @param profesores Vector de profesores
+ * @param cursos Vector de cursos
+ * @param matriculas Vector de matriculas
+ */
+void liberarMemoria(std::vector<Estudiante*>& estudiantes, std::vector<Profesor*>& profesores, std::vector<Curso*>& cursos, std::vector<Matricula*>& matriculas);
+
+#endif
